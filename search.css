@@ -1,0 +1,149 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  background-color: #363636;
+  font-family: "Roboto", sans-serif;
+}
+
+#searchBar {
+  width: 80%;
+  font-size: 16px;
+  display: block;
+  /*margin: auto;*/
+  padding: 10px;
+  border: 2px solid #cf8701;
+  background-color: white;
+  color: black;
+  /*margin-bottom: 12px;*/
+  /*margin-top: 20px;*/
+  border-radius: 20px;
+  outline: none;
+  width: 80%;
+  margin: 0px 10px 0px 10px;
+}
+
+#nameList {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px;
+}
+
+#nameList p {
+  color: white;
+  text-align: center;
+}
+
+#nameList li a {
+  text-decoration: none;
+  /*background-color: #292929;*/
+  color: white;
+  /*border: 1px solid gray;*/
+  margin-top: -1px;
+  padding: 20px;
+  font-size: 20px;
+  display: block;
+}
+
+ul{
+  border-left: 10px  solid #E6A000;
+  border-radius: 10px;
+  
+}
+
+#nameList li a:hover:not(.header) {
+  background-color: #363636;
+}
+
+
+
+/*carrossel*/
+
+.slider{
+  max-width: 700px;
+  margin:80px auto;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.slider .previous,.slider .next{
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  background-color: #444444;
+  border-radius: 50%;
+  color:#ffffff;
+  font-size: 20px;
+  top:50%;
+  cursor: pointer;
+  margin-top: -20px;
+  text-align: center;
+  line-height: 40px;
+  
+}
+.slider .previous:hover,.slider .next:hover{
+ box-shadow: 0px 0px 10px black;
+ background-color: #29a8e2;
+}
+
+.slider .previous{
+  left: 30px;
+}
+.slider .next{
+  right: 30px;
+}
+.slider .slider-items .item img{
+  max-width: 100%;
+  display: block;
+  animation:zoom 1s ease;
+}
+
+/*
+
+@keyframes zoom{
+  0%{transform: scale(2);opacity: 0}
+  50%{transform: scale(2);}
+  100%{transform: scale(1);opacity:1}
+}*/
+.slider .slider-items .item{
+  display: none;
+  position: relative;
+}
+.slider .slider-items .item .caption{
+position: absolute;
+width: 100%;
+height: 60px;
+bottom: 0px;
+left: 0px;
+background-color: rgba(0,0,0,.5);
+line-height: 60px;
+text-align: center;
+color: #ffffff;
+font-size: 30px;
+
+}
+
+.slider .slider-items .item.active{
+  display: block;
+}
+
+.container-carrossel{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-height: 40px;
+  margin-bottom: 5%;
+ }
+ .previous{
+  transform: rotate(180deg);
+ }
+
+
+ .next, .previous{
+   width: 60px;
+ }

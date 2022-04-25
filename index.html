@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="search.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <title>Search System</title>
+  </head>
+  <body>
+    <div class="img1">
+      <div style="display: flex; flex-direction: column; justify-content:flex-end;">
+        <div class="container-top">
+          <img class="icon" src="./assets/menu.png" alt="menu" />
+          <input
+            type="text"
+            id="searchBar"
+            onkeyup="searchFunc()"
+            placeholder="Search..."
+          />
+          <img
+            class="icon"
+            src="./assets/search.png"
+            alt="pesquisa"
+            onclick="searchFunc()"
+          />
+        </div>
+
+        <br />
+
+        <!--
+        <div class="text">
+          <h1>Olá!!</h1>
+          <span>Escolha uma bebida arrastando para o lado</span>
+        </div>
+
+        <div class="container-carrossel">
+          <div>
+            <img class="previous" src="./assets/btn.png" alt="previous" />
+          </div>
+
+          <div class="slider">
+            <div class="slider-items">
+              <div class="item active">
+                <img
+                  class="img-bebida"
+                  src="https://firebasestorage.googleapis.com/v0/b/a-gelada-eb4f3.appspot.com/o/heineken.png?alt=media&token=0a9dd535-c47e-432d-b314-13bc5d9d2a7d"
+                />
+              </div>
+              <div class="item">
+                <img
+                  class="img-bebida"
+                  src="https://e7.pngegg.com/pngimages/375/491/png-clipart-banana-bread-cartoon-banana-comics-food.png"
+                />
+              </div>
+              <div class="item">
+                <img
+                  class="img-bebida"
+                  src="data:image/jpeg;base64,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"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <img class="next" src="./assets/btn.png" alt="next" />
+          </div>
+        </div>-->\
+      </div>
+    </div>
+
+    <div class="img2" style="margin-left: 0px">
+      <div class="backgroundTwo">
+        <div class="container-list">
+          <ul id="nameList">
+            <li>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  color: white;
+                  width: 240px;
+                "
+              >
+                <div>
+                  <h1 style="font-weight: bolder">R$3,40</h1>
+                  <div style="text-align: end">
+                    <span style="font-size: 12px">unidade</span>
+                  </div>
+                </div>
+                <div>
+                  <h1 style="font-weight: bolder">R$3,40</h1>
+                  <div style="text-align: end">
+                    <span style="font-size: 12px">caixa</span>
+                  </div>
+                </div>
+                <a href="#" style="display: none">Cerveja Heineken 330ml</a>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  max-width: 260px;
+                "
+              >
+                <div>
+                  <img
+                    class="iconPequeno"
+                    src="./assets/local.png"
+                    alt="local"
+                  />
+                  <img
+                    class="iconPequeno"
+                    src="./assets/call.png"
+                    alt="ligar"
+                  />
+                  <img
+                    class="iconPequeno"
+                    src="./assets/wpp.png"
+                    alt="whatsapp"
+                  />
+                </div>
+
+                <div
+                  style="
+                    border-radius: 15px;
+                    padding: 0px 20px 0px 20px;
+                    border: 0px;
+                    background-color: #444444;
+                    color: white;
+                    text-align: center;
+                  "
+                >
+                  <span
+                    style="
+                      height: 100%;
+                      display: flex;
+                      align-items: center;
+                      font-size: 13px;
+                    "
+                    >Melhor Preço</span
+                  >
+                </div>
+              </div>
+            </li>
+            <li>
+              <a>Cerveja Amstel 600ml</a>
+            </li>
+            <li><a>Cerveja Becks 350ml</a></li>
+            <li><a>Cerveja Patagonia 330ml</a></li>
+            <li><a>Cerveja Malhou</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!--
+        <select name="bairros" id="bairros">
+          <option value="Aeroporto">Aeroporto</option>
+          <option value="Alto do Açude">Alto do Açude</option>
+          <option value="Alto da Colina">Alto da Colina</option>
+          <option value="Alto do Córrego">Alto do Córrego</option>
+          <option value="Alvorada">Alvorada</option>
+          <option value="Amoreiras">Amoreiras</option>
+          <option value="Amoreiras I">Amoreiras I</option>
+          <option value="Amoreiras II">Amoreiras II</option>
+          <option value="Arraial D`angola">Arraial D`angola</option>
+          <option value="Alto da Colina">Alto da Colina</option>
+
+          <option value="Bela Vista">Bela Vista</option>
+          <option value="Bela Vista II">Bela Vista II</option>
+          <option value="Bom Pastor">Bom Pastor</option>
+          <option value="Espirito Santo">Espirito Santo</option>
+          <option value="Esplanada">Esplanada</option>
+          <option value="N Sra. Aparecida">N Sra. Aparecida</option>
+          <option value="N Sra. Fátima">N Sra Fátima</option>
+          <option value="Novo Horizontet">Novo Horizonte</option>
+
+
+          <option value="Paracatuzinho">Paracatuzinho</option>
+          <option value="Prado">Prado</option>
+          <option value="Primavera">Primavera</option>
+          <option value="Primavera II">Primavera II</option>
+
+          <option value="Vila Alvorada">Vila Alvorada</option>
+          <option value="Vila Cruvinel">Vila Cruvinel</option>
+          <option value="Vila Mariana">Vila Mariana</option>
+          <option value="Vila São Calisto">Vila São Calisto</option>
+          <option value="Vilinha">Vilinha</option>
+          <option value="Vista Alegre">Vista Alegre</option>
+
+          <option value="Centro">Centro</option>
+          <option value="Chapadinha">Chapadinha</option>
+          <option value="Cidade Nova">Cidade Nova</option>
+
+          <option value="JK">JK</option>
+          <option value="Jardim Primavera">Jardim Primavera</option>
+          <option value="Jardim Serrano">Jardim Serrano</option>
+          <option value="Jóquei">Jóquei</option>
+
+          <option value="São J Evangelista">São J Evangelista</option>
+          <option value="Santa Lúcia">Santa Lúcia</option>
+          <option value="Santa Luzia">Santa Luzia</option>
+          <option value="Santana">Santana</option>
+          <option value="Santo Eduardo">Santo Eduardo</option>
+          <option value="São Domingos">São Domingos</option>
+          <option value="São Sebastião">São Sebastião</option>
+          <option value="Bairro" selected>Bairro</option>
+        </select>-->
+
+    <!--</div>-->
+
+    <script src="search.js"></script>
+
+    <script src="slide.js"></script>
+
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      body {
+        overflow-y: auto;
+        background-color: #1c1c1c;
+      }
+      .container-top {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5% 5% 0px 5%;
+      }
+      .icon {
+        width: 40px;
+        height: 40px;
+      }
+      .iconPequeno {
+        width: 30px;
+      }
+      .img1 {
+        background-image: url("./assets/backgroundOne.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center bottom;
+        height: 70vh;
+      }
+
+      .img2 {
+        /*
+        background-image: url("./assets/backgroundTwo.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center left;
+
+        height: auto;
+        width: 100vw;
+        */
+      }
+
+      /*lista*/
+      li {
+        border: 1px solid #1c1c1c;
+        border-radius: 0px 10px 10px 0px;
+        background-color: #2f2f2f;
+        padding: 10px;
+      }
+
+      .text {
+        color: white;
+        margin-left: 20px;
+      }
+    </style>
+  </body>
+</html>

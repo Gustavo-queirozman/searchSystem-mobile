@@ -1,0 +1,24 @@
+
+[
+    {
+        "id": "0302843982040",
+        "bebida":"Cerveja Heineken 300ml",
+        "preco": "15,90"
+    },
+    {
+        "id": "0302843989459",
+        "bebida":"Cerveja Amstel 600ml",
+        "preco": "15,90"
+    },
+    {
+        "id": "0302843982353",
+        "bebida":"Cerveja Original 350ml",
+        "preco": "4,90"
+    },
+    {
+        "id": "0302843989322",
+        "bebida":"Cerveja Becks 350ml",
+        "preco": "12,90"
+    }
+]
+
